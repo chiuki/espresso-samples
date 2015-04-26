@@ -1,0 +1,4 @@
+<resources>
+  <string name="app_name">Idling Resource: Intent Service</string>
+  <string name="repeat">Repeat</string>
+</resources>

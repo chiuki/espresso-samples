@@ -1,0 +1,30 @@
+
+apply plugin: 'com.android.application'
+
+android {
+  compileSdkVersion 22
+  buildToolsVersion '22.0.1'
+
+  defaultConfig {
+    applicationId 'com.sqisland.android.espresso.idling_resource.intent_service'
+    minSdkVersion 8
+    targetSdkVersion 22
+    versionCode 1
+    versionName '1.0.0'
+
+    testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
+  }
+
+  packagingOptions {
+    exclude 'LICENSE.txt'
+  }
+}
+
+dependencies {
+  compile 'com.android.support:support-v4:22.0.0'
+
+  androidTestCompile 'com.android.support.test:runner:0.2'
+  androidTestCompile 'com.android.support.test:rules:0.2'
+  androidTestCompile 'com.android.support.test.espresso:espresso-core:2.1'
+  androidTestCompile 'com.android.support.test.espresso:espresso-idling-resource:2.1'
+}
