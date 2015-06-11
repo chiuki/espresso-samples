@@ -20,18 +20,18 @@ android {
 }
 
 dependencies {
-  compile 'com.android.support:appcompat-v7:22.1.1'
+  compile 'com.android.support:appcompat-v7:22.2.0'
 
-  androidTestCompile ('com.android.support.test:runner:0.2') {
+  androidTestCompile ('com.android.support.test:runner:0.3') {
     exclude module: 'support-annotations'
   }
-  androidTestCompile ('com.android.support.test:rules:0.2') {
+  androidTestCompile ('com.android.support.test:rules:0.3') {
     exclude module: 'support-annotations'
   }
-  androidTestCompile ('com.android.support.test.espresso:espresso-core:2.1') {
+  androidTestCompile ('com.android.support.test.espresso:espresso-core:2.2') {
     exclude module: 'support-annotations'
   }
-  androidTestCompile ('com.android.support.test.espresso:espresso-idling-resource:2.1') {
+  androidTestCompile ('com.android.support.test.espresso:espresso-idling-resource:2.2') {
     exclude module: 'support-annotations'
   }
 }
