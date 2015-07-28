@@ -1,5 +1,7 @@
 package com.sqisland.espresso.idling_resource.dialog_fragment;
 
+import android.support.test.espresso.Espresso;
+import android.support.test.espresso.IdlingResource;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
@@ -19,8 +21,15 @@ public class MainActivityTest {
 
   @Test
   public void done() {
-    // TODO: Add IdlingResource so this test passes
+    IdlingResource idlingResource = new DialogFragmentIdlingResource(
+        activityRule.getActivity().getSupportFragmentManager(),
+        LoadingDialogFragment.TAG);
+
+    Espresso.registerIdlingResources(idlingResource);
+
     onView(withId(R.id.text))
         .check(matches(withText(R.string.done)));
+
+    Espresso.unregisterIdlingResources(idlingResource);
   }
 }

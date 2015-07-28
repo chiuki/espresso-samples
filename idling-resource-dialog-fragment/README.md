@@ -8,3 +8,5 @@ the `TextView`?
 References:
   * [idling-resource-intent-service](../idling-resource-intent-service)
   * [idling-resource-elapsed-time](../idling-resource-elapsed-time)
+
+Solution: http://blog.sqisland.com/2015/07/espresso-wait-for-dialog-to-dismiss.html
