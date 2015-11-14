@@ -9,24 +9,17 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
   private static final int RESULT_CODE = 2000;
 
-  ZXingBridge bridge = new ZXingBridge();
+  ZXingBridge bridge = Injection.provideZXingBridge();
 
   private TextView formatView;
   private TextView resultView;
-
-  ZXingBridge.Listener listener = new ZXingBridge.Listener() {
-    @Override
-    public void onScanResult(String format, String result) {
-      formatView.setText(format);
-      resultView.setText(result);
-    }
-  };
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
+    View scanButton = findViewById(R.id.scan_button);
     formatView = (TextView) findViewById(R.id.format);
     resultView = (TextView) findViewById(R.id.result);
 
@@ -35,15 +28,27 @@ public class MainActivity extends AppCompatActivity {
       resultView.setText(savedInstanceState.getCharSequence(ZXingBridge.KEY_SCAN_RESULT));
     }
 
-    bridge.setListener(listener);
+    if (bridge.isSupported(this)) {
+      ZXingBridge.Listener listener = new ZXingBridge.Listener() {
+        @Override
+        public void onScanResult(String format, String result) {
+          formatView.setText(format);
+          resultView.setText(result);
+        }
+      };
+      bridge.setListener(listener);
 
-    View scanButton = findViewById(R.id.scan_button);
-    scanButton.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        bridge.scan(MainActivity.this, RESULT_CODE);
-      }
-    });
+      scanButton.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+          bridge.scan(MainActivity.this, RESULT_CODE);
+        }
+      });
+    } else {
+      scanButton.setVisibility(View.GONE);
+      formatView.setVisibility(View.GONE);
+      resultView.setText(R.string.not_supported);
+    }
   }
 
   @Override

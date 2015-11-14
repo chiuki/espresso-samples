@@ -1,25 +1,68 @@
 apply plugin: 'com.android.application'
 
 android {
-  compileSdkVersion 23
-  buildToolsVersion "23.0.2"
+  compileSdkVersion rootProject.ext.compileSdkVersion
+  buildToolsVersion rootProject.ext.buildToolsVersion
 
   defaultConfig {
-    applicationId "com.sqisland.espresso.zxing.mock"
-    minSdkVersion 8
-    targetSdkVersion 23
+    applicationId 'com.sqisland.espresso.zxing.mock'
+    minSdkVersion rootProject.ext.minSdkVersion
+    targetSdkVersion rootProject.ext.targetSdkVersion
     versionCode 1
     versionName "1.0.0"
+
+    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
   }
+
   buildTypes {
     release {
       minifyEnabled false
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
   }
+
+  productFlavors {
+    mock {
+    }
+    prod {
+    }
+  }
+
+  // Remove mockRelease as it's not needed.
+  android.variantFilter { variant ->
+    if (variant.buildType.name.equals('release') &&
+        variant.getFlavors().get(0).name.equals('mock')) {
+      variant.setIgnore(true);
+    }
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_7
+    targetCompatibility JavaVersion.VERSION_1_7
+  }
 }
 
 dependencies {
   compile fileTree(dir: 'libs', include: ['*.jar'])
-  compile 'com.android.support:appcompat-v7:23.1.1'
+  compile "com.android.support:appcompat-v7:${rootProject.supportLibraryVersion}"
+
+  mockCompile "com.google.dexmaker:dexmaker:${rootProject.ext.dexmakerVersion}"
+  mockCompile ("com.google.dexmaker:dexmaker-mockito:${rootProject.ext.dexmakerVersion}") {
+    exclude group: 'org.hamcrest', module: 'hamcrest-core'
+  }
+  mockCompile ("org.mockito:mockito-core:${rootProject.ext.mockitoVersion}") {
+    exclude group: 'org.hamcrest', module: 'hamcrest-core'
+  }
+
+  androidTestCompile "com.android.support.test:runner:${rootProject.runnerVersion}"
+  androidTestCompile "com.android.support.test:rules:${rootProject.rulesVersion}"
+  androidTestCompile "com.android.support.test.espresso:espresso-core:${rootProject.espressoVersion}"
+}
+
+/*
+Resolves dependency versions across test and production APKs, specifically, transitive
+dependencies. This is required since Espresso internally has a dependency on support-annotations.
+*/
+configurations.all {
+  resolutionStrategy.force "com.android.support:support-annotations:${rootProject.supportLibraryVersion}"
 }
