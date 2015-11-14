@@ -7,13 +7,20 @@ import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-  public static final String KEY_SCAN_RESULT = "SCAN_RESULT";
-  public static final String KEY_SCAN_RESULT_FORMAT = "SCAN_RESULT_FORMAT";
-
   private static final int RESULT_CODE = 2000;
+
+  ZXingBridge bridge = new ZXingBridge();
 
   private TextView formatView;
   private TextView resultView;
+
+  ZXingBridge.Listener listener = new ZXingBridge.Listener() {
+    @Override
+    public void onScanResult(String format, String result) {
+      formatView.setText(format);
+      resultView.setText(result);
+    }
+  };
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -24,36 +31,36 @@ public class MainActivity extends AppCompatActivity {
     resultView = (TextView) findViewById(R.id.result);
 
     if (savedInstanceState != null) {
-      formatView.setText(savedInstanceState.getCharSequence(KEY_SCAN_RESULT_FORMAT));
-      resultView.setText(savedInstanceState.getCharSequence(KEY_SCAN_RESULT));
+      formatView.setText(savedInstanceState.getCharSequence(ZXingBridge.KEY_SCAN_RESULT_FORMAT));
+      resultView.setText(savedInstanceState.getCharSequence(ZXingBridge.KEY_SCAN_RESULT));
     }
+
+    bridge.setListener(listener);
 
     View scanButton = findViewById(R.id.scan_button);
     scanButton.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        Intent intent = new Intent("com.google.zxing.client.android.SCAN");
-        startActivityForResult(intent, RESULT_CODE);
+        bridge.scan(MainActivity.this, RESULT_CODE);
       }
     });
   }
 
   @Override
   protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-    if (requestCode == RESULT_CODE) {
-      if (resultCode == RESULT_OK) {
-        String result = data.getStringExtra(KEY_SCAN_RESULT);
-        String format = data.getStringExtra(KEY_SCAN_RESULT_FORMAT);
-        formatView.setText(format);
-        resultView.setText(result);
-      }
+    switch (requestCode) {
+      case RESULT_CODE:
+        bridge.onActivityResult(resultCode, data);
+        break;
+      default:
+        super.onActivityResult(requestCode, resultCode, data);
     }
   }
 
   @Override
   protected void onSaveInstanceState(Bundle outState) {
     super.onSaveInstanceState(outState);
-    outState.putCharSequence(KEY_SCAN_RESULT_FORMAT, formatView.getText());
-    outState.putCharSequence(KEY_SCAN_RESULT, resultView.getText());
+    outState.putCharSequence(ZXingBridge.KEY_SCAN_RESULT_FORMAT, formatView.getText());
+    outState.putCharSequence(ZXingBridge.KEY_SCAN_RESULT, resultView.getText());
   }
 }
