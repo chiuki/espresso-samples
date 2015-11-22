@@ -1,5 +1,5 @@
 <resources>
-  <string name="app_name">ZXing</string>
+  <string name="app_name">ZXing Mock</string>
   <string name="scan">Scan</string>
   <string name="not_supported">Barcode Scanner missing</string>
 </resources>
