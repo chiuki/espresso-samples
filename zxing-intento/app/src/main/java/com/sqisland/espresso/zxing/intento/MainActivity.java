@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
       });
     } else {
       scanButton.setVisibility(View.GONE);
+      resultView.setText(R.string.not_supported);
     }
   }
 
