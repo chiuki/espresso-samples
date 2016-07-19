@@ -1,4 +1,1 @@
-Espresso Hello World
---------------------
-
-Using Espresso to test your Hello World app.
+https://code.google.com/p/android/issues/detail?id=216442
