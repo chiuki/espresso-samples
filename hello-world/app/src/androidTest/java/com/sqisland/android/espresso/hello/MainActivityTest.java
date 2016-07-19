@@ -20,7 +20,16 @@ public class MainActivityTest {
       MainActivity.class);
 
   @Test
-  public void greet() {
+  public void greet1() {
+    doGreet();
+  }
+
+  @Test
+  public void greet2() {
+    doGreet();
+  }
+
+  private void doGreet() {
     onView(withId(R.id.greeting))
         .check(matches(withText("")));
 
