@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Button
+    android:id="@+id/button"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:text="@string/only_in_the_uk"
+    tools:context="com.sqisland.espresso.assume.MainActivity"/>
