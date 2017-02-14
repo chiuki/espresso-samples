@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
   compileSdkVersion 25
-  buildToolsVersion '25.0.1'
+  buildToolsVersion '25.0.2'
 
   defaultConfig {
     applicationId 'com.sqisland.android.espresso.idling_resource.dialog_fragment'
@@ -20,7 +20,7 @@ android {
 }
 
 dependencies {
-  compile 'com.android.support:appcompat-v7:25.0.1'
+  compile 'com.android.support:appcompat-v7:25.0.2'
 
   androidTestCompile ('com.android.support.test:runner:0.5') {
     exclude module: 'support-annotations'
