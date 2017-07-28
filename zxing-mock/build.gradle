@@ -34,5 +34,5 @@ ext {
   // App dependencies
   supportLibraryVersion = '25.3.1'
   mockitoVersion = '2.8.47'
-  espressoVersion = '2.2.2'
+  espressoVersion = '3.0.0'
 }

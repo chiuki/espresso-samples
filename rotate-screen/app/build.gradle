@@ -22,7 +22,7 @@ android {
 dependencies {
   compile 'com.android.support:appcompat-v7:25.3.1'
 
-  androidTestCompile ('com.android.support.test.espresso:espresso-core:2.2.2') {
+  androidTestCompile ('com.android.support.test.espresso:espresso-core:3.0.0') {
     exclude module: 'support-annotations'
   }
 }

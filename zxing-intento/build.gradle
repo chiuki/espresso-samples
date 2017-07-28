@@ -33,5 +33,5 @@ ext {
 
   // App dependencies
   supportLibraryVersion = '25.3.1'
-  espressoVersion = '2.2.2'
+  espressoVersion = '3.0.0'
 }
