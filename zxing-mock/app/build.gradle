@@ -9,9 +9,9 @@ android {
     minSdkVersion rootProject.ext.minSdkVersion
     targetSdkVersion rootProject.ext.targetSdkVersion
     versionCode 1
-    versionName "1.0.0"
+    versionName '1.0.0'
 
-    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
   }
 
   buildTypes {
@@ -54,8 +54,6 @@ dependencies {
     exclude group: 'org.hamcrest', module: 'hamcrest-core'
   }
 
-  androidTestCompile "com.android.support.test:runner:${rootProject.runnerVersion}"
-  androidTestCompile "com.android.support.test:rules:${rootProject.rulesVersion}"
   androidTestCompile "com.android.support.test.espresso:espresso-core:${rootProject.espressoVersion}"
 }
 

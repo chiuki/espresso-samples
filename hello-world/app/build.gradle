@@ -2,11 +2,11 @@ apply plugin: 'com.android.application'
 
 android {
   compileSdkVersion 25
-  buildToolsVersion '25.0.2'
+  buildToolsVersion '25.0.3'
 
   defaultConfig {
     applicationId "com.sqisland.android.espresso.hello"
-    minSdkVersion 8
+    minSdkVersion 9
     targetSdkVersion 25
     versionCode 1
     versionName '1.0.0'
@@ -20,7 +20,5 @@ android {
 }
 
 dependencies {
-  androidTestCompile 'com.android.support.test:runner:0.5'
-  androidTestCompile 'com.android.support.test:rules:0.5'
   androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
 }

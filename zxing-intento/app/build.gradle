@@ -9,9 +9,9 @@ android {
     minSdkVersion rootProject.ext.minSdkVersion
     targetSdkVersion rootProject.ext.targetSdkVersion
     versionCode 1
-    versionName "1.0.0"
+    versionName '1.0.0'
 
-    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
   }
 
   buildTypes {
@@ -26,8 +26,6 @@ dependencies {
   compile fileTree(dir: 'libs', include: ['*.jar'])
   compile "com.android.support:appcompat-v7:${rootProject.supportLibraryVersion}"
 
-  androidTestCompile "com.android.support.test:runner:${rootProject.runnerVersion}"
-  androidTestCompile "com.android.support.test:rules:${rootProject.rulesVersion}"
   androidTestCompile "com.android.support.test.espresso:espresso-core:${rootProject.espressoVersion}"
   androidTestCompile "com.android.support.test.espresso:espresso-intents:${rootProject.espressoVersion}"
 }
@@ -37,5 +35,5 @@ Resolves dependency versions across test and production APKs, specifically, tran
 dependencies. This is required since Espresso internally has a dependency on support-annotations.
 */
 configurations.all {
-    resolutionStrategy.force "com.android.support:support-annotations:${rootProject.supportLibraryVersion}"
+  resolutionStrategy.force "com.android.support:support-annotations:${rootProject.supportLibraryVersion}"
 }
