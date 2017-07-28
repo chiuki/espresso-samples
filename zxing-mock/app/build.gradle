@@ -46,13 +46,7 @@ dependencies {
   compile fileTree(dir: 'libs', include: ['*.jar'])
   compile "com.android.support:appcompat-v7:${rootProject.supportLibraryVersion}"
 
-  mockCompile "com.google.dexmaker:dexmaker:${rootProject.ext.dexmakerVersion}"
-  mockCompile ("com.google.dexmaker:dexmaker-mockito:${rootProject.ext.dexmakerVersion}") {
-    exclude group: 'org.hamcrest', module: 'hamcrest-core'
-  }
-  mockCompile ("org.mockito:mockito-core:${rootProject.ext.mockitoVersion}") {
-    exclude group: 'org.hamcrest', module: 'hamcrest-core'
-  }
+  mockCompile "org.mockito:mockito-android:${rootProject.ext.mockitoVersion}"
 
   androidTestCompile "com.android.support.test.espresso:espresso-core:${rootProject.espressoVersion}"
 }
