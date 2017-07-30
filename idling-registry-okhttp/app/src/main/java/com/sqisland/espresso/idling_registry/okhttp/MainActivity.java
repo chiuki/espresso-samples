@@ -19,10 +19,16 @@ public class MainActivity extends Activity {
 
     final TextView nameView = findViewById(R.id.name);
 
+    OkHttpClient client = new OkHttpClient();
+
+    if (BuildConfig.DEBUG) {
+      IdlingResources.registerOkHttp(client);
+    }
+
     Retrofit retrofit = new Retrofit.Builder()
         .baseUrl("https://api.github.com/")
         .addConverterFactory(MoshiConverterFactory.create())
-        .client(new OkHttpClient())
+        .client(client)
         .build();
 
     GitHubService service = retrofit.create(GitHubService.class);

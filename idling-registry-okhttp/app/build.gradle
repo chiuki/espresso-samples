@@ -27,6 +27,11 @@ dependencies {
   compile 'com.squareup.retrofit2:retrofit:2.3.0'
   compile 'com.squareup.retrofit2:converter-moshi:2.3.0'
   compile 'com.squareup.okhttp3:okhttp:3.8.1'
-  
+
+  debugCompile 'com.android.support.test.espresso.idling:idling-concurrent:3.0.0'
+  debugCompile ('com.jakewharton.espresso:okhttp3-idling-resource:1.0.0') {
+    exclude module: 'support-annotations'
+  }
+
   androidTestCompile 'com.android.support.test.espresso:espresso-core:3.0.0'
 }
