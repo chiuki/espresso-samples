@@ -22,8 +22,8 @@ public class MainActivity extends Activity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-    input = (TextView) findViewById(R.id.input);
-    output = (TextView) findViewById(R.id.output);
+    input = findViewById(R.id.input);
+    output = findViewById(R.id.output);
 
     manager = LocalBroadcastManager.getInstance(this);
     receiver = new BroadcastReceiver() {

@@ -18,9 +18,9 @@ public class MainActivity extends Activity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-    toggleButton = (Button) findViewById(R.id.toggle_button);
-    elapsedTimeView = (TextView) findViewById(R.id.elapsed_Time);
-    resultView = (TextView) findViewById(R.id.result);
+    toggleButton = findViewById(R.id.toggle_button);
+    elapsedTimeView = findViewById(R.id.elapsed_Time);
+    resultView = findViewById(R.id.result);
   }
 
   public void toggle(View v) {

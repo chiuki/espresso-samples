@@ -16,7 +16,7 @@ public class MainActivity extends Activity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-    final TextView nameView = (TextView) findViewById(R.id.name);
+    final TextView nameView = findViewById(R.id.name);
 
     Retrofit retrofit = new Retrofit.Builder()
         .baseUrl("https://api.github.com/")

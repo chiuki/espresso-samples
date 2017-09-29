@@ -20,8 +20,8 @@ public class MainActivity extends AppCompatActivity {
     setContentView(R.layout.activity_main);
 
     View scanButton = findViewById(R.id.scan_button);
-    formatView = (TextView) findViewById(R.id.format);
-    resultView = (TextView) findViewById(R.id.result);
+    formatView = findViewById(R.id.format);
+    resultView = findViewById(R.id.result);
 
     if (savedInstanceState != null) {
       formatView.setText(savedInstanceState.getCharSequence(ZXingBridge.KEY_SCAN_RESULT_FORMAT));

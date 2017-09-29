@@ -14,8 +14,8 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-    RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-    final TextView textView = (TextView) findViewById(R.id.text);
+    RecyclerView recyclerView = findViewById(R.id.recycler_view);
+    final TextView textView = findViewById(R.id.text);
     textView.setBackgroundColor(Color.LTGRAY);
     textView.setVisibility(View.GONE);
 

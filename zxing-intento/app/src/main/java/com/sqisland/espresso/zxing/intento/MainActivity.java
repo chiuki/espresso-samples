@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-    formatView = (TextView) findViewById(R.id.format);
-    resultView = (TextView) findViewById(R.id.result);
+    formatView = findViewById(R.id.format);
+    resultView = findViewById(R.id.result);
 
     if (savedInstanceState != null) {
       formatView.setText(savedInstanceState.getCharSequence(KEY_SCAN_RESULT_FORMAT));

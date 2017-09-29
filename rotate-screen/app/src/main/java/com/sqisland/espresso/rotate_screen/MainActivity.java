@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-    countView = (TextView) findViewById(R.id.count);
+    countView = findViewById(R.id.count);
 
     if (savedInstanceState != null) {
       count = savedInstanceState.getInt(KEY_COUNT, 0);

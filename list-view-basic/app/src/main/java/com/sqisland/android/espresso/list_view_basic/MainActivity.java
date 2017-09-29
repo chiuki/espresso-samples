@@ -18,11 +18,11 @@ public class MainActivity extends AppCompatActivity {
     setContentView(R.layout.activity_main);
 
 
-    final TextView textView = (TextView) findViewById(R.id.text);
+    final TextView textView = findViewById(R.id.text);
     textView.setBackgroundColor(Color.LTGRAY);
     textView.setVisibility(View.GONE);
 
-    ListView listView = (ListView) findViewById(R.id.list);
+    ListView listView = findViewById(R.id.list);
 
     final Item[] items = new Item[COUNT];
     for (int i = 0; i < COUNT; ++i) {

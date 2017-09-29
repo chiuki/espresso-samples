@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-    textView = (TextView) findViewById(R.id.text);
+    textView = findViewById(R.id.text);
 
     LoadingDialogFragment fragment = new LoadingDialogFragment();
     fragment.setCancelable(false);
