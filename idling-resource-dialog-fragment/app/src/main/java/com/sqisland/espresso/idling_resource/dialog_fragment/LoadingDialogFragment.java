@@ -44,7 +44,7 @@ public class LoadingDialogFragment extends DialogFragment {
     private static final int MSG_DISMISS = 0;
     private final WeakReference<DialogFragment> ref;
 
-    public LoadingHandler(DialogFragment fragment) {
+    private LoadingHandler(DialogFragment fragment) {
       ref = new WeakReference<>(fragment);
     }
 

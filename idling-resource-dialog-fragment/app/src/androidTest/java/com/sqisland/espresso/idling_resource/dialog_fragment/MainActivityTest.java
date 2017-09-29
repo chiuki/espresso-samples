@@ -1,6 +1,6 @@
 package com.sqisland.espresso.idling_resource.dialog_fragment;
 
-import android.support.test.espresso.Espresso;
+import android.support.test.espresso.IdlingRegistry;
 import android.support.test.espresso.IdlingResource;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
@@ -25,11 +25,11 @@ public class MainActivityTest {
         activityRule.getActivity().getSupportFragmentManager(),
         LoadingDialogFragment.TAG);
 
-    Espresso.registerIdlingResources(idlingResource);
+    IdlingRegistry.getInstance().register(idlingResource);
 
     onView(withId(R.id.text))
         .check(matches(withText(R.string.done)));
 
-    Espresso.unregisterIdlingResources(idlingResource);
+    IdlingRegistry.getInstance().unregister(idlingResource);
   }
 }
