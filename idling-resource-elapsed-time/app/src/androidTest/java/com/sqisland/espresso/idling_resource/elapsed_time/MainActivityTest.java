@@ -1,7 +1,7 @@
 package com.sqisland.espresso.idling_resource.elapsed_time;
 
-import android.support.test.espresso.Espresso;
 import android.support.test.espresso.IdlingPolicies;
+import android.support.test.espresso.IdlingRegistry;
 import android.support.test.espresso.IdlingResource;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
@@ -53,7 +53,7 @@ public class MainActivityTest {
 
     // Now we wait
     IdlingResource idlingResource = new ElapsedTimeIdlingResource(waitingTime);
-    Espresso.registerIdlingResources(idlingResource);
+    IdlingRegistry.getInstance().register(idlingResource);
 
     // Stop and verify
     onView(withId(R.id.toggle_button))
@@ -63,6 +63,6 @@ public class MainActivityTest {
         .check(matches(withText(success ? R.string.success: R.string.failure)));
 
     // Clean up
-    Espresso.unregisterIdlingResources(idlingResource);
+    IdlingRegistry.getInstance().unregister(idlingResource);
   }
 }

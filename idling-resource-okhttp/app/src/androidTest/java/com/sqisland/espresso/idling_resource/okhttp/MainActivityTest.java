@@ -1,6 +1,6 @@
 package com.sqisland.espresso.idling_resource.okhttp;
 
-import android.support.test.espresso.Espresso;
+import android.support.test.espresso.IdlingRegistry;
 import android.support.test.espresso.IdlingResource;
 import android.support.test.rule.ActivityTestRule;
 
@@ -22,11 +22,11 @@ public class MainActivityTest {
   public void name() {
     IdlingResource idlingResource = OkHttp3IdlingResource.create(
         "okhttp", OkHttpProvider.getOkHttpInstance());
-    Espresso.registerIdlingResources(idlingResource);
+    IdlingRegistry.getInstance().register(idlingResource);
 
     onView(withId(R.id.name))
         .check(matches(withText("Chiu-Ki Chan")));
 
-    Espresso.unregisterIdlingResources(idlingResource);
+    IdlingRegistry.getInstance().unregister(idlingResource);
   }
 }
