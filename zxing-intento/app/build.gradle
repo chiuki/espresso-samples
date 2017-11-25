@@ -23,11 +23,11 @@ android {
 }
 
 dependencies {
-  compile fileTree(dir: 'libs', include: ['*.jar'])
-  compile "com.android.support:appcompat-v7:${rootProject.supportLibraryVersion}"
+  implementation fileTree(dir: 'libs', include: ['*.jar'])
+  implementation "com.android.support:appcompat-v7:${rootProject.supportLibraryVersion}"
 
-  androidTestCompile "com.android.support.test.espresso:espresso-core:${rootProject.espressoVersion}"
-  androidTestCompile "com.android.support.test.espresso:espresso-intents:${rootProject.espressoVersion}"
+  androidTestImplementation "com.android.support.test.espresso:espresso-core:${rootProject.espressoVersion}"
+  androidTestImplementation "com.android.support.test.espresso:espresso-intents:${rootProject.espressoVersion}"
 }
 
 /*

@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-  compileSdkVersion 26
-  buildToolsVersion '26.0.1'
+  compileSdkVersion 27
+  buildToolsVersion '27.0.1'
 
   defaultConfig {
     applicationId 'com.sqisland.android.espresso.toolbar_title'
-    minSdkVersion 14
-    targetSdkVersion 26
+    minSdkVersion 15
+    targetSdkVersion 27
     versionCode 1
     versionName '1.0.0'
 
@@ -20,9 +20,9 @@ android {
 }
 
 dependencies {
-  compile 'com.android.support:appcompat-v7:26.1.0'
+  implementation 'com.android.support:appcompat-v7:27.0.1'
 
-  androidTestCompile ('com.android.support.test.espresso:espresso-core:3.0.0') {
+  androidTestImplementation ('com.android.support.test.espresso:espresso-core:3.0.1') {
     exclude module: 'support-annotations'
   }
 }
