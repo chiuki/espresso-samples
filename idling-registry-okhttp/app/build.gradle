@@ -26,7 +26,7 @@ dependencies {
   implementation fileTree(dir: 'libs', include: ['*.jar'])
   implementation 'com.squareup.retrofit2:retrofit:2.3.0'
   implementation 'com.squareup.retrofit2:converter-moshi:2.3.0'
-  implementation 'com.squareup.okhttp3:okhttp:3.9.0'
+  implementation 'com.squareup.okhttp3:okhttp:3.9.1'
 
   debugImplementation 'com.android.support.test.espresso.idling:idling-concurrent:3.0.1'
   debugImplementation ('com.jakewharton.espresso:okhttp3-idling-resource:1.0.0') {
