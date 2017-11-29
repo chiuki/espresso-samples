@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-  compileSdkVersion 26
-  buildToolsVersion '26.0.1'
+  compileSdkVersion 27
+  buildToolsVersion '27.0.1'
 
   defaultConfig {
     applicationId 'com.sqisland.espresso.repeatedly_until'
-    minSdkVersion 9
-    targetSdkVersion 26
+    minSdkVersion 15
+    targetSdkVersion 27
     versionCode 1
     versionName '1.0.0'
 
@@ -23,6 +23,6 @@ android {
 }
 
 dependencies {
-  compile fileTree(dir: 'libs', include: ['*.jar'])
-  androidTestCompile 'com.android.support.test.espresso:espresso-core:3.0.0'
+  implementation fileTree(dir: 'libs', include: ['*.jar'])
+  androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 }

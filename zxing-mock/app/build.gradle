@@ -21,6 +21,8 @@ android {
     }
   }
 
+  flavorDimensions "default"
+
   productFlavors {
     mock {
     }
@@ -30,9 +32,9 @@ android {
 
   // Remove mockRelease as it's not needed.
   android.variantFilter { variant ->
-    if (variant.buildType.name.equals('release') &&
-        variant.getFlavors().get(0).name.equals('mock')) {
-      variant.setIgnore(true);
+    if (variant.buildType.name == 'release' &&
+            variant.getFlavors().get(0).name == 'mock') {
+      variant.setIgnore(true)
     }
   }
 
@@ -43,12 +45,12 @@ android {
 }
 
 dependencies {
-  compile fileTree(dir: 'libs', include: ['*.jar'])
-  compile "com.android.support:appcompat-v7:${rootProject.supportLibraryVersion}"
+  implementation fileTree(dir: 'libs', include: ['*.jar'])
+  implementation "com.android.support:appcompat-v7:${rootProject.supportLibraryVersion}"
 
   mockCompile "org.mockito:mockito-android:${rootProject.ext.mockitoVersion}"
 
-  androidTestCompile "com.android.support.test.espresso:espresso-core:${rootProject.espressoVersion}"
+  androidTestImplementation "com.android.support.test.espresso:espresso-core:${rootProject.espressoVersion}"
 }
 
 /*
