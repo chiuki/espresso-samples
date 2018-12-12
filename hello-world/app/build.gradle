@@ -2,17 +2,17 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-  compileSdkVersion 27
-  buildToolsVersion '27.0.1'
+  compileSdkVersion 28
+  buildToolsVersion '28.0.3'
 
   defaultConfig {
-    applicationId "com.sqisland.android.espresso.hello"
+    applicationId 'com.sqisland.android.espresso.hello'
     minSdkVersion 15
-    targetSdkVersion 27
+    targetSdkVersion 28
     versionCode 1
     versionName '1.0.0'
 
-    testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
+    testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
   }
 
   packagingOptions {
@@ -22,5 +22,7 @@ android {
 
 dependencies {
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-  androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+  androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+  androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+  androidTestImplementation 'androidx.test:rules:1.1.1'
 }
