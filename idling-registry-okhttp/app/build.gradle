@@ -1,13 +1,14 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 
 android {
-  compileSdkVersion 27
-  buildToolsVersion '27.0.1'
+  compileSdkVersion 28
+  buildToolsVersion '28.0.3'
 
   defaultConfig {
     applicationId 'com.sqisland.espresso.idling_registry.okhttp'
     minSdkVersion 15
-    targetSdkVersion 27
+    targetSdkVersion 28
     versionCode 1
     versionName '1.0.0'
 
@@ -23,15 +24,16 @@ android {
 }
 
 dependencies {
-  implementation fileTree(dir: 'libs', include: ['*.jar'])
-  implementation 'com.squareup.retrofit2:retrofit:2.3.0'
-  implementation 'com.squareup.retrofit2:converter-moshi:2.3.0'
-  implementation 'com.squareup.okhttp3:okhttp:3.9.1'
+  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+  implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+  implementation 'com.squareup.retrofit2:converter-moshi:2.4.0'
+  implementation 'com.squareup.okhttp3:okhttp:3.12.0'
 
-  debugImplementation 'com.android.support.test.espresso.idling:idling-concurrent:3.0.1'
+  debugImplementation 'com.android.support.test.espresso.idling:idling-concurrent:3.0.2'
   debugImplementation ('com.jakewharton.espresso:okhttp3-idling-resource:1.0.0') {
     exclude module: 'support-annotations'
   }
 
-  androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+  androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+  androidTestImplementation 'com.android.support.test:rules:1.0.2'
 }
