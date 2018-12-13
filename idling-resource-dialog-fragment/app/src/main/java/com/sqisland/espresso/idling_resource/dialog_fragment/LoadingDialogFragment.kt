@@ -4,9 +4,9 @@ import android.app.Dialog
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
-import android.support.v4.app.DialogFragment
-import android.support.v7.app.AlertDialog
 import android.text.format.DateUtils
+import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.DialogFragment
 
 import java.lang.ref.WeakReference
 
