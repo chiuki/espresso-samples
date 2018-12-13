@@ -1,6 +1,6 @@
 package com.sqisland.espresso.idling_resource.elapsed_time
 
-import android.support.test.espresso.IdlingResource
+import androidx.test.espresso.IdlingResource
 
 class ElapsedTimeIdlingResource(private val waitingTime: Long) : IdlingResource {
   private val startTime: Long = System.currentTimeMillis()
