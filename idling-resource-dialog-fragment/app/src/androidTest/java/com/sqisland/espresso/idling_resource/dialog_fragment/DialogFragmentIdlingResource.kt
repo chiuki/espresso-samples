@@ -1,7 +1,7 @@
 package com.sqisland.espresso.idling_resource.dialog_fragment
 
-import android.support.test.espresso.IdlingResource
-import android.support.v4.app.FragmentManager
+import androidx.fragment.app.FragmentManager
+import androidx.test.espresso.IdlingResource
 
 class DialogFragmentIdlingResource(private val manager: FragmentManager, private val tag: String) : IdlingResource {
   private var resourceCallback: IdlingResource.ResourceCallback? = null

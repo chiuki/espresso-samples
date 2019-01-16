@@ -1,8 +1,8 @@
 package com.sqisland.espresso.idling_resource.dialog_fragment
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
   private lateinit var textView: TextView
