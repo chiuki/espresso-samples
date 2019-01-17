@@ -1,11 +1,12 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 
 android {
   compileSdkVersion rootProject.ext.compileSdkVersion
   buildToolsVersion rootProject.ext.buildToolsVersion
 
   defaultConfig {
-    applicationId 'com.sqisland.espresso.zxing.mock'
+    applicationId 'com.sqisland.espresso.zxing.intento'
     minSdkVersion rootProject.ext.minSdkVersion
     targetSdkVersion rootProject.ext.targetSdkVersion
     versionCode 1
@@ -23,7 +24,7 @@ android {
 }
 
 dependencies {
-  implementation fileTree(dir: 'libs', include: ['*.jar'])
+  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
   implementation "com.android.support:appcompat-v7:${rootProject.supportLibraryVersion}"
 
   androidTestImplementation "com.android.support.test.espresso:espresso-core:${rootProject.espressoVersion}"
