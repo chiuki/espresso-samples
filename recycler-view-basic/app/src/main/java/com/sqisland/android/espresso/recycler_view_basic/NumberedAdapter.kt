@@ -1,9 +1,9 @@
 package com.sqisland.android.espresso.recycler_view_basic
 
-import android.support.v7.widget.RecyclerView
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 import java.util.ArrayList
 
 class NumberedAdapter(count: Int, private val listener: OnItemClickListener?) : RecyclerView.Adapter<TextViewHolder>() {
