@@ -2,17 +2,17 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-  compileSdkVersion rootProject.ext.compileSdkVersion
-  buildToolsVersion rootProject.ext.buildToolsVersion
+  compileSdkVersion 28
+  buildToolsVersion '28.0.3'
 
   defaultConfig {
     applicationId 'com.sqisland.espresso.zxing.intento'
-    minSdkVersion rootProject.ext.minSdkVersion
-    targetSdkVersion rootProject.ext.targetSdkVersion
+    minSdkVersion 15
+    targetSdkVersion 28
     versionCode 1
     versionName '1.0.0'
 
-    testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
+    testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
   }
 
   buildTypes {
@@ -25,16 +25,9 @@ android {
 
 dependencies {
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-  implementation "com.android.support:appcompat-v7:${rootProject.supportLibraryVersion}"
-
-  androidTestImplementation "com.android.support.test.espresso:espresso-core:${rootProject.espressoVersion}"
-  androidTestImplementation "com.android.support.test.espresso:espresso-intents:${rootProject.espressoVersion}"
-}
-
-/*
-Resolves dependency versions across test and production APKs, specifically, transitive
-dependencies. This is required since Espresso internally has a dependency on support-annotations.
-*/
-configurations.all {
-  resolutionStrategy.force "com.android.support:support-annotations:${rootProject.supportLibraryVersion}"
+  implementation 'androidx.appcompat:appcompat:1.0.2'
+  androidTestImplementation 'androidx.test:core:1.1.0'
+  androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+  androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+  androidTestImplementation 'androidx.test.espresso:espresso-intents:3.1.1'
 }
