@@ -1,14 +1,15 @@
 package com.sqisland.espresso.toolbar_title
 
-import android.support.test.InstrumentationRegistry
-import android.support.test.espresso.Espresso.onView
-import android.support.test.espresso.ViewInteraction
-import android.support.test.espresso.assertion.ViewAssertions.matches
-import android.support.test.espresso.matcher.BoundedMatcher
-import android.support.test.espresso.matcher.ViewMatchers.isAssignableFrom
-import android.support.test.rule.ActivityTestRule
-import android.support.test.runner.AndroidJUnit4
-import android.support.v7.widget.Toolbar
+import android.content.Context
+import androidx.appcompat.widget.Toolbar
+import androidx.test.core.app.ApplicationProvider
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.ViewInteraction
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.matcher.BoundedMatcher
+import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
+import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.rule.ActivityTestRule
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.core.Is.`is`
@@ -23,7 +24,7 @@ class MainActivityTest {
 
   @Test
   fun toolbarTitle() {
-    val title = InstrumentationRegistry.getTargetContext().getString(R.string.my_title)
+    val title = ApplicationProvider.getApplicationContext<Context>().getString(R.string.my_title)
     matchToolbarTitle(title)
   }
 
