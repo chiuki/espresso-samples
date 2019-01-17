@@ -1,13 +1,14 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 
 android {
-  compileSdkVersion 27
-  buildToolsVersion '27.0.1'
+  compileSdkVersion 28
+  buildToolsVersion '28.0.3'
 
   defaultConfig {
     applicationId 'com.sqisland.espresso.repeatedly_until'
     minSdkVersion 15
-    targetSdkVersion 27
+    targetSdkVersion 28
     versionCode 1
     versionName '1.0.0'
 
@@ -23,6 +24,7 @@ android {
 }
 
 dependencies {
-  implementation fileTree(dir: 'libs', include: ['*.jar'])
-  androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+  androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+  androidTestImplementation 'com.android.support.test:rules:1.0.2'
 }
